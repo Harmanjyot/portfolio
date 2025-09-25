@@ -1,0 +1,225 @@
+@import "./Common";
+
+.banner-container {
+  width: 100%;
+  height: auto;
+  max-height: 100vh;
+  overflow: hidden;
+  max-width: 100vw;
+  .banner-wrapper {
+    display: flex;
+    background-color: $primary_1;
+    background-image: url("../../public/img/backgrounds/geometricBlack.png");
+
+    background-size: 55%;
+    background-color: $primary_6;
+    transition: all 1s ease;
+    &.hover {
+      background-color: $primary_1;
+      background-image: url("../../public/img/backgrounds/geometric.png");
+      transition: all 0.5s ease;
+    }
+    .banner-left-container {
+      width: 50%;
+      height: auto;
+      display: block;
+      position: relative;
+      overflow: visible;
+
+      // background-color: $primary_1;
+    }
+
+    .banner-default-img {
+      width: 100%;
+      position: relative;
+      transition: all 1s ease;
+      left: 0px;
+      &.active {
+        position: relative;
+        left: 30vw;
+        opacity: 0;
+        // scale: 0;
+        transition: all 1s ease;
+      }
+    }
+    .banner-hover-img {
+      display: block;
+      position: absolute;
+      width: 100%;
+      height: inherit;
+      transition: all 1s ease;
+      left: 0px;
+      top: 0px;
+      z-index: 2;
+      &.active {
+        left: 30vw;
+        transition: all 1s ease;
+        filter: grayscale(100%);
+        top: 0px;
+      }
+    }
+    .banner-right-container {
+      display: flex;
+      // float: right;
+
+      width: 50%;
+      height: inherit;
+      transition: all 1s ease;
+      &.active {
+        background-color: transparent;
+        transition: all 1s ease;
+      }
+      .dark-text {
+        color: $primary_1;
+        text-align: justify;
+        width: auto;
+        padding: 10%;
+        font-size: 1.5em;
+        margin: auto;
+        font-family: "Source Code Pro", monospace;
+        .dark-text-head {
+          font-family: "Roboto", sans-serif;
+          // position: absolute;
+          text-align: center;
+          font-size: clamp(24px, 20vw, 100px);
+          text-transform: uppercase;
+          font-weight: 800;
+          letter-spacing: 10px;
+          left: 10vw;
+          top: 0px;
+        }
+        .headline-container {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          position: absolute;
+          top: 50vh;
+          // left: 0;
+          left: 0px;
+          bottom: 0;
+          pointer-events: none;
+          // visibility: hidden;
+          transition: all 0.1s ease;
+          opacity: 1;
+          &.hover {
+            opacity: 0;
+            // visibility: visible;
+            transition: all 0.5s ease;
+            left: -50%;
+          }
+          #text-behind,
+          #text-front,
+          #text-behind-blur {
+            font-family: "Roboto", sans-serif;
+            position: absolute;
+            text-align: center;
+            font-size: clamp(24px, 20vw, 200px);
+            text-transform: uppercase;
+            font-weight: 800;
+            letter-spacing: 10px;
+            line-height: 0.8;
+          }
+
+          #text-behind {
+            color: $primary_9;
+            z-index: 1;
+          }
+
+          #text-behind-blur {
+            color: var($primary_9);
+            filter: blur(7.5px);
+            -webkit-filter: blur(7.5px);
+            z-index: 0;
+          }
+
+          #text-front {
+            /*  Set text-color to transparent to only show the outline  */
+            color: transparent;
+            text-stroke: 2px var($primary_9);
+            -webkit-text-stroke: 2px $primary_9;
+            z-index: 10;
+          }
+        }
+      }
+    }
+    .headline-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      top: 0;
+      // left: 0;
+      right: 23%;
+      bottom: 0;
+      pointer-events: none;
+      // visibility: hidden;
+      transition: all 0.1s ease;
+      opacity: 0;
+      &.hover {
+        opacity: 1;
+        // visibility: visible;
+        transition: all 0.1s ease;
+        right: 27%;
+        transition: right 0.5s ease;
+      }
+      #text-behind,
+      #text-front,
+      #text-behind-blur {
+        font-family: "Roboto", sans-serif;
+        position: absolute;
+        text-align: center;
+        font-size: clamp(24px, 20vw, 200px);
+        text-transform: uppercase;
+        font-weight: 800;
+        letter-spacing: 10px;
+        line-height: 0.8;
+      }
+
+      #text-behind {
+        color: $primary_9;
+        z-index: 1;
+      }
+
+      #text-behind-blur {
+        color: var($primary_9);
+        filter: blur(7.5px);
+        -webkit-filter: blur(7.5px);
+        z-index: 0;
+      }
+
+      #text-front {
+        /*  Set text-color to transparent to only show the outline  */
+        color: transparent;
+        text-stroke: 2px var($primary_9);
+        -webkit-text-stroke: 2px $primary_9;
+        z-index: 10;
+      }
+    }
+    .headline-container.second {
+      top: 40px;
+      right: 22%;
+      #text-behind,
+      #text-behind-blur {
+        color: $primary_6;
+      }
+      &.hover {
+        right: 29%;
+        transition: right 1.5s ease;
+      }
+
+      #text-front {
+        text-stroke: 2px $primary_6;
+        -webkit-text-stroke: 2px $primary_6;
+      }
+    }
+    .pattern {
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      width: 100vw;
+      height: 100vh;
+      // background: linear-gradient(to top, #051833 0%, #200533 70%);
+      overflow: hidden;
+    }
+  }
+}

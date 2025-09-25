@@ -1,0 +1,135 @@
+@import "../Common";
+
+@media screen and (min-width: 300px) and (max-width: 700px) {
+  .nav-component {
+    background-color: lightblue;
+  }
+}
+
+.nav-overlay {
+  width: 100%;
+  height: 100vh;
+  background-color: $primary_4;
+  position: absolute;
+  transition: all 0.5s ease;
+  opacity: 0;
+  visibility: hidden;
+  &.active {
+    opacity: 0.7;
+    visibility: visible;
+    transition: all 0.5s ease;
+  }
+}
+
+.nav-component {
+  width: 100%;
+  position: fixed;
+  z-index: 20;
+  background: linear-gradient(to bottom, rgba(11, 9, 10, 0.5), #1e1e1e00);
+  .close-nav {
+    width: 0px;
+    height: 0px;
+    border-radius: 50%;
+    transition: all 0.5s ease;
+
+    &.active {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background-color: white;
+      margin: auto;
+      position: relative;
+      top: 12vh;
+      left: 5vh;
+      transition: all 0.5s ease;
+      &:hover {
+        background-color: $primary_1;
+      }
+    }
+  }
+  .nav-component-wrapper {
+    width: 50%;
+    margin: auto;
+    .nav-button-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      // z-index: 10;
+      .nav-button-main {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        background-color: $primary_2;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        margin-left: -15px;
+        z-index: 1;
+        transition: all 1s ease;
+        position: relative;
+        top: 0px;
+        left: 0px;
+        right: 0px;
+        cursor: pointer;
+        color: $primary_9;
+        // font-weight: 700;
+        &.lets-chat {
+          width: 100px;
+          height: 100px;
+          background-color: $primary_1;
+          color: $primary_2;
+          color: $primary_9;
+        }
+        &:first-child {
+          margin-left: 0;
+        }
+        &.hovered {
+          background-color: #f0f0f0;
+          transform: scale(1.05);
+          color: $primary_8;
+          position: relative;
+          top: 20px;
+          transition: all 0.5s ease;
+          background-color: $primary_1;
+          scale: 1.25;
+          &:hover {
+            background-color: $primary_4;
+            color: white;
+          }
+          &.lets-chat {
+            background-color: $primary_2;
+            &:hover {
+              background-color: $primary_4;
+              color: white;
+            }
+          }
+          &:nth-child(1) {
+            top: 20vh;
+            left: -5.5vw;
+          }
+          &:nth-child(2) {
+            top: 30vh;
+            right: 5vw;
+          }
+          &:nth-child(3) {
+            top: 30vh;
+            left: 5vw;
+          }
+          &:nth-child(4) {
+            top: 20vh;
+            left: 10vw;
+          }
+          &:nth-child(5) {
+            top: 47vh;
+            left: -11.3vw;
+          }
+        }
+        &.left-banner-active {
+          background-color: $primary_3;
+          transition: all 1s ease;
+        }
+      }
+    }
+  }
+}
