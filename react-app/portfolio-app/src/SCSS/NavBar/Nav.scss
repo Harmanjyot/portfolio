@@ -40,7 +40,7 @@
       margin: auto;
       position: relative;
       top: 12vh;
-      left: 5vh;
+      // left: 5vh;
       transition: all 0.5s ease;
       &:hover {
         background-color: $primary_1;
@@ -48,8 +48,9 @@
     }
   }
   .nav-component-wrapper {
-    width: 50%;
+    // width: 50%;
     margin: auto;
+    width: 750px;
     .nav-button-wrapper {
       display: flex;
       align-items: center;
@@ -110,11 +111,11 @@
           }
           &:nth-child(2) {
             top: 30vh;
-            right: 5vw;
+            left: -10px;
           }
           &:nth-child(3) {
             top: 30vh;
-            left: 5vw;
+            left: 97px;
           }
           &:nth-child(4) {
             top: 20vh;
@@ -122,7 +123,7 @@
           }
           &:nth-child(5) {
             top: 47vh;
-            left: -11.3vw;
+            left: -168px;
           }
         }
         &.left-banner-active {
