@@ -1,0 +1,108 @@
+@import "../Common";
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@700&display=swap");
+
+:root {
+  --block-color-1: #e71d36;
+  --block-color-2: #011627;
+  --background-color: #000;
+}
+
+.lets-chat-container {
+  background-color: #000; /* black background */
+  padding: 2rem;
+  display: block;
+  position: relative;
+  overflow: hidden;
+
+  .block {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-color: #fff;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+    opacity: 0.6;
+    z-index: 1;
+  }
+  .block:nth-of-type(3n + 2) {
+    background-color: $primary_6;
+  }
+  .block:nth-of-type(3n + 3) {
+    background-color: $primary_4;
+  }
+  /* additional colors cycling */
+  .block:nth-of-type(4n) {
+    background-color: $primary_8;
+  }
+  .block:nth-of-type(5n) {
+    background-color: $primary_3;
+  }
+}
+
+// Basic styles for contact form
+.lets-chat-form {
+  max-width: 500px;
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  color: white;
+  padding: 75px 100px;
+  background-color: rgba(0, 0, 0, 0.85);
+  z-index: 10;
+  h1 {
+    font-size: 2.25em;
+  }
+  .form-group {
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+
+    label {
+      margin-bottom: 0.25rem;
+      font-weight: bold;
+    }
+
+    input,
+    textarea,
+    select {
+      padding: 0.5rem;
+      border: 1px solid $primary_8;
+      border-radius: 4px;
+      font-size: 1rem;
+    }
+
+    .mobile-row {
+      display: flex;
+      gap: 0.5rem;
+
+      select {
+        flex: 0 0 120px;
+      }
+
+      input {
+        flex: 1;
+      }
+    }
+
+    .error {
+      color: red;
+      font-size: 0.875rem;
+      margin-top: 0.25rem;
+    }
+  }
+
+  .submit-btn {
+    padding: 0.75rem 1.5rem;
+    background: $primary_6;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+
+    &:hover {
+      background: darken($primary_6, 10%);
+    }
+  }
+}

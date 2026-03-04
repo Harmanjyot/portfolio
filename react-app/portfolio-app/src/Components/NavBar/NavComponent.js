@@ -29,6 +29,17 @@ const NavComponent = () => {
       handMouseLeave();
     }
   };
+
+  const handleChatClick = () => {
+    const chatElement = document.querySelector(".lets-chat-container");
+    if (chatElement) {
+      chatElement.scrollIntoView({ behavior: "smooth" });
+    } else {
+      window.location.href = "/#chat";
+      handMouseLeave();
+    }
+  };
+
   return (
     <div className="nav-component">
       <div
@@ -85,7 +96,7 @@ const NavComponent = () => {
                 : "nav-button-main lets-chat"
             }
             onMouseEnter={handleMouseEnter.bind(this)}
-            onClick={() => (window.location.href = "/contact")}
+            onClick={handleChatClick}
             // onMouseLeave={handMouseLeave.bind(this)}
           >
             Let's Chat!
