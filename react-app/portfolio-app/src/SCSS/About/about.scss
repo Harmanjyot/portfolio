@@ -1,0 +1,111 @@
+@import "../Common";
+.about-container {
+//   position: relative;
+  padding-bottom: 200px; // leave room for waves
+  overflow: hidden;
+  height: 50vh;
+}
+
+.content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  z-index: 1;          // above waves
+  position: relative;
+  padding: 75px 100px;
+  .about-text {
+    
+    width: 50%;
+    flex: 1 1 300px;
+    h1 { margin-top: 0;
+          font-family: "Bevan", serif;
+  font-weight: 400;
+  font-style: normal;
+        letter-spacing: 0.2em;
+        font-size: 77px;
+        color: $primary_5;
+        line-height: 70px;
+    &:nth-child(1){
+        color: $primary_1;
+        margin-bottom: 0px;
+        font-size: 50px;
+        transform: scaleY(1.2);
+    } }
+  }
+  .about-image {
+    width: 50%;
+    // flex: 0 0 200px;
+    img { width:35%;
+  display: block;
+  margin: auto; }
+  }
+}
+
+.box {
+  width: 100%;
+  height: 800px;
+  border-radius: 5px;
+//   box-shadow: 0 2px 30px rgba(black, 0.2);
+//   background: lighten(#f0f4c3, 10%);
+//   position: relative;
+//   overflow: hidden;
+//   transform: translate3d(0, 0, 0);
+  transform: rotate(180deg);
+    display: flex;
+//   &:after {
+//     content: '';
+//     display: block;
+//     position: absolute;
+//     left: 0;
+//     top: 0;
+//     width: 100%;
+//     height: 100%;
+//     background: linear-gradient(
+//       to bottom,
+//       rgba($primary_3, 0.7),
+//       rgba($primary_5, 0) 80%,
+//       rgba($primary_7, 0.5)
+//     );
+//     z-index: 11;
+//     transform: translate3d(0, 0, 0);
+//   }
+
+.waveHolder{
+    width: 1000px;
+    margin-left: -200px;
+    position: relative;
+}
+}
+
+.wave {
+  opacity: 0.4;
+  position: absolute;
+  top: -2%;
+  background: $primary_6;
+  width: 750px;
+  height: 750px;
+//   margin-top: -250px;
+  transform-origin: 50% 48%;
+  border-radius: 43%;
+  --wave-duration: 10000ms;
+  animation: drift var(--wave-duration) infinite linear;
+
+  &.-three {
+    --wave-duration: 5000ms;
+  }
+
+  &.-two {
+    --wave-duration: 7000ms;
+    opacity: 0.25;
+    background: green;
+  }
+}
+
+@keyframes drift {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
