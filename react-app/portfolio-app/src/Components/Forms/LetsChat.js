@@ -1,9 +1,15 @@
 import React, { useState, useEffect, useRef } from "react";
 import "../../SCSS/Forms/letsChat.scss";
-// note: install with `npm install react-phone-number-input`
+// note: install with `npm install react-phone-number-input axios`
+import axios from "axios";
 import PhoneInput, { isValidPhoneNumber } from "react-phone-number-input";
 import "react-phone-number-input/style.css";
-import { IMG_PREFIX, IMG_ILLUSTRATION } from "../constants";
+import {
+  IMG_PREFIX,
+  IMG_ILLUSTRATION,
+  POST_ENQUIRY,
+  SPRING_CONFIG,
+} from "../constants";
 
 const LetsChat = () => {
   const [name, setName] = useState("");
@@ -36,13 +42,19 @@ const LetsChat = () => {
     return Object.keys(errs).length === 0;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!validate()) return;
 
-    // submit logic here - e.g. API call
-    console.log({ name, mobile, email, message });
-    alert("Form submitted (see console)");
+    const payload = { name, mobile, email, enquiryTxt: message };
+    try {
+      const response = await axios.post(SPRING_CONFIG + POST_ENQUIRY, payload);
+      console.log("Enquiry response", response.data);
+      alert("Message sent successfully!");
+    } catch (err) {
+      console.error(err);
+      alert("Failed to send message, please try again later.");
+    }
 
     // reset
     setName("");
