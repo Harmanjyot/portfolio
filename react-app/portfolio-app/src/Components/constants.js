@@ -1,4 +1,5 @@
-export const SPRING_CONFIG = "http://localhost:8080";
+// export const SPRING_CONFIG = "http://localhost:8080";
+export const SPRING_CONFIG = "https://portfolio-3d43.onrender.com";
 
 export const IMG_PREFIX = "/img";
 
