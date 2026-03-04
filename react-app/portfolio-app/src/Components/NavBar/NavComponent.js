@@ -19,6 +19,16 @@ const NavComponent = () => {
       setCanHoveredButton(true);
     }, 1000);
   };
+
+  const handleAboutMeClick = () => {
+    const aboutElement = document.querySelector(".about-container");
+    if (aboutElement) {
+      aboutElement.scrollIntoView({ behavior: "smooth" });
+    } else {
+      window.location.href = "/#about";
+      handMouseLeave();
+    }
+  };
   return (
     <div className="nav-component">
       <div
@@ -45,7 +55,7 @@ const NavComponent = () => {
               hoveredButton ? "hovered nav-button-main" : "nav-button-main"
             }
             onMouseEnter={handleMouseEnter.bind(this)}
-            // onMouseLeave={handMouseLeave.bind(this)}
+            onClick={handleAboutMeClick}
           >
             About Me
           </div>
@@ -55,8 +65,9 @@ const NavComponent = () => {
             }
             onMouseEnter={handleMouseEnter.bind(this)}
             // onMouseLeave={handMouseLeave.bind(this)}
+            onClick={() => (window.location.href = "/experience")}
           >
-            Experiance
+            Experience
           </div>
           <div
             className={
@@ -74,6 +85,7 @@ const NavComponent = () => {
                 : "nav-button-main lets-chat"
             }
             onMouseEnter={handleMouseEnter.bind(this)}
+            onClick={() => (window.location.href = "/contact")}
             // onMouseLeave={handMouseLeave.bind(this)}
           >
             Let's Chat!

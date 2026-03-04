@@ -5,6 +5,7 @@ import HomeContainer from "./Containers/HomeContainer";
 import reportWebVitals from "./reportWebVitals";
 import NavComponent from "./Components/NavBar/NavComponent";
 import Projects from "./Containers/Projects";
+import NotFound from "./Containers/NotFound";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -14,10 +15,12 @@ root.render(
 
       <Routes>
         <Route path="/" element={<HomeContainer />} />
-        <Route path="/projects" element={<Projects />} />
+        <Route path="/projects" element={<NotFound />} />
+        <Route path="*" element={<NotFound />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
-  </React.StrictMode>
+  </React.StrictMode>,
 );
 
 reportWebVitals();

@@ -1,43 +1,109 @@
 @import "../Common";
 .about-container {
-//   position: relative;
+  //   position: relative;
   padding-bottom: 200px; // leave room for waves
   overflow: hidden;
-  height: 50vh;
+  height: 550px;
 }
 
 .content {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
-  z-index: 1;          // above waves
+  z-index: 1; // above waves
   position: relative;
   padding: 75px 100px;
   .about-text {
-    
     width: 50%;
     flex: 1 1 300px;
-    h1 { margin-top: 0;
-          font-family: "Bevan", serif;
-  font-weight: 400;
-  font-style: normal;
-        letter-spacing: 0.2em;
-        font-size: 77px;
-        color: $primary_5;
-        line-height: 70px;
-    &:nth-child(1){
+    h1 {
+      margin-top: 0;
+      font-family: "Bevan", serif;
+      font-weight: 400;
+      font-style: normal;
+      letter-spacing: 0.2em;
+      font-size: 77px;
+      color: $primary_5;
+      line-height: 70px;
+      margin-bottom: 20px;
+      &:nth-child(1) {
         color: $primary_1;
         margin-bottom: 0px;
         font-size: 50px;
         transform: scaleY(1.2);
-    } }
+      }
+    }
+    p {
+      font-size: 95%;
+      letter-spacing: 0.05em;
+      word-spacing: 0.5em;
+      line-height: 1.5em;
+    }
   }
   .about-image {
     width: 50%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     // flex: 0 0 200px;
-    img { width:35%;
-  display: block;
-  margin: auto; }
+    margin-top: 20px;
+    img {
+      width: 35%;
+      display: block;
+      margin: auto;
+      position: relative;
+      z-index: 2;
+    }
+    .circles-container {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      .circle {
+        position: absolute;
+        width: 70px;
+        height: 70px;
+        background: $primary_3;
+        border-radius: 50%;
+        animation: float 6s ease-in-out infinite;
+        img {
+          width: 105%;
+        }
+        &:nth-child(1) {
+          top: -5%;
+          left: 30%;
+          animation-delay: 0s;
+        }
+        &:nth-child(2) {
+          top: -5%;
+          right: 30%;
+          animation-delay: 1s;
+        }
+        &:nth-child(3) {
+          top: -15%;
+          left: 47%;
+          // margin-left: -35px;
+          animation-delay: 2s;
+        }
+        &:nth-child(4) {
+          top: 20%;
+          left: 15%;
+          animation-delay: 1.5s;
+        }
+        &:nth-child(5) {
+          top: 20%;
+          right: 15%;
+          animation-delay: 0.5s;
+          img {
+            width: 75%;
+            margin-top: 9px;
+          }
+        }
+      }
+    }
   }
 }
 
@@ -45,46 +111,46 @@
   width: 100%;
   height: 800px;
   border-radius: 5px;
-//   box-shadow: 0 2px 30px rgba(black, 0.2);
-//   background: lighten(#f0f4c3, 10%);
-//   position: relative;
-//   overflow: hidden;
-//   transform: translate3d(0, 0, 0);
+  //   box-shadow: 0 2px 30px rgba(black, 0.2);
+  //   background: lighten(#f0f4c3, 10%);
+  //   position: relative;
+  //   overflow: hidden;
+  //   transform: translate3d(0, 0, 0);
   transform: rotate(180deg);
-    display: flex;
-//   &:after {
-//     content: '';
-//     display: block;
-//     position: absolute;
-//     left: 0;
-//     top: 0;
-//     width: 100%;
-//     height: 100%;
-//     background: linear-gradient(
-//       to bottom,
-//       rgba($primary_3, 0.7),
-//       rgba($primary_5, 0) 80%,
-//       rgba($primary_7, 0.5)
-//     );
-//     z-index: 11;
-//     transform: translate3d(0, 0, 0);
-//   }
+  display: flex;
+  //   &:after {
+  //     content: '';
+  //     display: block;
+  //     position: absolute;
+  //     left: 0;
+  //     top: 0;
+  //     width: 100%;
+  //     height: 100%;
+  //     background: linear-gradient(
+  //       to bottom,
+  //       rgba($primary_3, 0.7),
+  //       rgba($primary_5, 0) 80%,
+  //       rgba($primary_7, 0.5)
+  //     );
+  //     z-index: 11;
+  //     transform: translate3d(0, 0, 0);
+  //   }
 
-.waveHolder{
+  .waveHolder {
     width: 1000px;
     margin-left: -200px;
     position: relative;
-}
+  }
 }
 
 .wave {
   opacity: 0.4;
   position: absolute;
-  top: -2%;
+  top: -1%;
   background: $primary_6;
   width: 750px;
   height: 750px;
-//   margin-top: -250px;
+  //   margin-top: -250px;
   transform-origin: 50% 48%;
   border-radius: 43%;
   --wave-duration: 10000ms;
@@ -107,5 +173,15 @@
   }
   to {
     transform: rotate(360deg);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
   }
 }
