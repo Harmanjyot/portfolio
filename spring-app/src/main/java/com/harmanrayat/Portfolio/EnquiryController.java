@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-@CrossOrigin(origins = "https://portfolio-3d43.onrender.com/")
+@CrossOrigin(origins = "https://harmanrayat.com/")
 @RestController
 @RequestMapping("/api/v1/enquiries")
 public class EnquiryController {
