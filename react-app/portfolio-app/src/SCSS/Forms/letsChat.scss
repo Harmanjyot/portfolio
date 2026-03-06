@@ -13,6 +13,42 @@
   display: block;
   position: relative;
   overflow: hidden;
+  @media screen and (max-width: 1080px) {
+    padding: 0rem;
+    .lets-chat-form {
+      padding: 50px 15px !important;
+      max-width: 350px;
+    }
+  }
+
+  @media screen and (max-width: 400px) {
+    padding: 0;
+    .lets-chat-form {
+      padding: 30px 15px !important;
+      max-width: 100%;
+      width: 100%;
+      box-sizing: border-box;
+      background-color: rgba(0, 0, 0, 0.75);
+      input,
+      textarea,
+      select {
+        width: 100%;
+        box-sizing: border-box;
+        min-width: 0;
+      }
+
+      .PhoneInput {
+        width: 100%;
+        box-sizing: border-box;
+
+        .PhoneInputInput {
+          min-width: 0;
+          width: 100%;
+          box-sizing: border-box;
+        }
+      }
+    }
+  }
 
   .block {
     position: absolute;

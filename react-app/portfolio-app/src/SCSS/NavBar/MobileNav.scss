@@ -1,0 +1,140 @@
+@import "../Common";
+
+.mobile-nav-component {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding: 1rem;
+}
+
+.burger-menu {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  z-index: 1001;
+  background: $primary_2;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+
+  span {
+    width: 25px;
+    height: 3px;
+    background: $primary_9;
+    margin: 4px 0;
+    transition: all 0.3s ease;
+    display: block;
+  }
+
+  &.active {
+    background: $primary_1;
+
+    span:nth-child(1) {
+      transform: rotate(45deg) translate(10px, 10px);
+    }
+
+    span:nth-child(2) {
+      opacity: 0;
+    }
+
+    span:nth-child(3) {
+      transform: rotate(-45deg) translate(7px, -7px);
+    }
+  }
+}
+
+.menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: $primary_4;
+  opacity: 0.7;
+  z-index: 999;
+  animation: fadeIn 0.5s ease;
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 0.7;
+    }
+  }
+}
+
+.floating-menu {
+  position: fixed;
+  left: 80px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  z-index: 1000;
+  pointer-events: none;
+
+  &.active {
+    pointer-events: auto;
+
+    .menu-circle {
+      opacity: 1;
+      transform: translateX(0) scale(1);
+      // each circle transitions in sequence after the previous
+      transition-delay: calc(var(--index) * 0.12s);
+    }
+  }
+
+  .menu-circle {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: $primary_2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 0.85rem;
+    color: $primary_9;
+    text-align: center;
+    padding: 0.5rem;
+
+    // starting state — collapsed back at the burger, invisible
+    opacity: 0;
+    transform: translateX(-70px) scale(0);
+    transform-origin: left center;
+    transition:
+      opacity 0.35s ease,
+      transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+
+    span {
+      line-height: 1.2;
+      word-wrap: break-word;
+    }
+
+    &:hover {
+      background-color: $primary_4;
+      color: $primary_9;
+      transform: scale(1.25);
+    }
+
+    &.special {
+      background-color: $primary_1;
+      color: $primary_9;
+
+      &:hover {
+        background-color: $primary_4;
+        color: $primary_9;
+      }
+    }
+  }
+}
