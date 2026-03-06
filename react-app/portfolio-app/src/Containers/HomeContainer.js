@@ -38,11 +38,11 @@ const HomeContainer = () => {
 
   return (
     <div className="home-container">
-      <Suspense fallback={<div>Loading...</div>}>
-        {isMobile ? <MobileBanner /> : <Banner />}
-        {isMobile ? <MobileAbout /> : <About />}
-        {isMobile ? <MobileLetsChat /> : <LetsChat />}
-      </Suspense>
+      {/* <Suspense fallback={<div>Loading...</div>}> */}
+      {isMobile ? <MobileBanner /> : <Banner />}
+      {isMobile ? <MobileAbout /> : <About />}
+      {isMobile ? <MobileLetsChat /> : <LetsChat />}
+      {/* </Suspense> */}
     </div>
   );
 };
