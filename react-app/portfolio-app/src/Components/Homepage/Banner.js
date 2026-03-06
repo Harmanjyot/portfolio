@@ -2,6 +2,10 @@ import React, { useEffect, useState } from "react";
 import "../../SCSS/Homepage/Scroll1.scss";
 import "../../SCSS/Banners.scss";
 import ComputerContainer from "./ComputerBanner";
+import { useGLTF } from "@react-three/drei";
+
+// preload the model as soon as this module is imported
+useGLTF.preload("/3dModels/low_poly_laptop.glb");
 
 const Banner = () => {
   const [imgHover, setimgHover] = useState(false);
@@ -56,7 +60,13 @@ const Banner = () => {
           </div>
         </div>
         <div className="banner-left-container">
-          {imgHover ? <ComputerContainer /> : ""}
+          <div
+            className={
+              imgHover ? "computer-wrapper visible" : "computer-wrapper"
+            }
+          >
+            <ComputerContainer />
+          </div>
           <img
             onMouseEnter={() => {
               setimgHover(true);

@@ -1,5 +1,20 @@
 @import "../Common";
 
+.computer-wrapper {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+
+  &.visible {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
+
 .computer-container {
   position: absolute;
   top: 0px;
