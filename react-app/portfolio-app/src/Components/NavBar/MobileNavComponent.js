@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import "../../SCSS/NavBar/MobileNav.scss";
+import { useNavigate } from "react-router-dom";
 
 const MobileNavComponent = () => {
+  const navigate = useNavigate();
   const [menuOpen, setMenuOpen] = useState(false);
 
   const handleBurgerClick = () => {
@@ -31,8 +33,16 @@ const MobileNavComponent = () => {
     }
   };
 
+  const handleHomeClick = () => {
+    if (window.location.pathname === "/") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } else {
+      navigate("/");
+    }
+  };
+
   const menuItems = [
-    { label: "Home", action: () => (window.location.href = "/") },
+    { label: "Home", action: handleHomeClick },
     { label: "About Me", action: handleAboutMeClick },
     {
       label: "Experience",

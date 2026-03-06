@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import "../../SCSS/NavBar/Nav.scss";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const NavComponent = () => {
+  const navigate = useNavigate();
   const [hoveredButton, setHoveredButton] = useState(false);
   const [canHoverButton, setCanHoveredButton] = useState(true);
 
@@ -18,6 +19,15 @@ const NavComponent = () => {
     setTimeout(() => {
       setCanHoveredButton(true);
     }, 1000);
+  };
+
+  const handleHomeClick = () => {
+    if (window.location.pathname === "/") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } else {
+      navigate("/");
+    }
+    handMouseLeave();
   };
 
   const handleAboutMeClick = () => {
@@ -56,8 +66,7 @@ const NavComponent = () => {
               hoveredButton ? "hovered nav-button-main" : "nav-button-main"
             }
             onMouseEnter={handleMouseEnter.bind(this)}
-            // onMouseLeave={handMouseLeave.bind(this)}
-            onClick={() => (window.location.href = "/")}
+            onClick={handleHomeClick}
           >
             Home
           </div>

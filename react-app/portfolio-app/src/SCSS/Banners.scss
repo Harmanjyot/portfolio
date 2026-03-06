@@ -223,3 +223,92 @@
     }
   }
 }
+
+// ── Mobile Banner ─────────────────────────────────────────
+.mobile-banner {
+  position: relative;
+  overflow: hidden;
+  background-color: $primary_1;
+  background-image: url("../../public/img/backgrounds/geometric.png");
+  background-size: 55%;
+  height: 430px;
+  animation: bgDrift 12s ease-in-out infinite alternate;
+
+  @keyframes bgDrift {
+    0%   { background-position: 0% 0%; }
+    25%  { background-position: 20% 10%; }
+    50%  { background-position: 10% 25%; }
+    75%  { background-position: 30% 15%; }
+    100% { background-position: 15% 30%; }
+  }
+  .banner-img-container {
+    position: absolute;
+    width: 100%;
+    margin: 0 auto;
+    padding-top: 2rem;
+
+    img {
+      width: 100%;
+      display: block;
+      z-index: 2;
+      min-width: 360px;
+      position: relative;
+    }
+  }
+
+  .headline-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 100%;
+    height: 120px;
+    pointer-events: none;
+    opacity: 1;
+    top: 250px;
+    #text-behind,
+    #text-front,
+    #text-behind-blur {
+      font-family: "Roboto", sans-serif;
+      position: absolute;
+      text-align: left;
+      font-size: clamp(24px, 18vw, 120px);
+      text-transform: uppercase;
+      font-weight: 800;
+      letter-spacing: 6px;
+      line-height: 0.8;
+    }
+
+    #text-behind {
+      color: $primary_9;
+      z-index: 1;
+    }
+
+    #text-behind-blur {
+      color: $primary_9;
+      filter: blur(7.5px);
+      -webkit-filter: blur(7.5px);
+      z-index: 0;
+    }
+
+    #text-front {
+      color: transparent;
+      -webkit-text-stroke: 2px $primary_9;
+      z-index: 10;
+    }
+
+    &.second {
+      margin-top: -100px;
+      margin-left: -24px;
+
+      #text-behind,
+      #text-behind-blur {
+        color: $primary_6;
+      }
+
+      #text-front {
+        -webkit-text-stroke: 2px $primary_6;
+      }
+    }
+  }
+}
