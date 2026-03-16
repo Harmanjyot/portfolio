@@ -2,8 +2,8 @@ name: Keep Render Awake
 
 on:
   schedule:
-    # Runs every 14 minutes to prevent Render's 15-min spin-down
-    - cron: "*/14 * * * *"
+    # Runs every 10 minutes to prevent Render's 15-min spin-down
+    - cron: "*/10 * * * *"
   workflow_dispatch: # Allow manual trigger from GitHub Actions UI
 
 jobs:
@@ -14,7 +14,7 @@ jobs:
       - name: Ping Render server
         run: |
           echo "Pinging Render server at $(date)"
-          STATUS=$(curl -o /dev/null -s -w "%{http_code}" --max-time 30 "${{ secrets.RENDER_URL }}/ping")
+          STATUS=$(curl -o /dev/null -s -w "%{http_code}" --max-time 60 "${{ secrets.RENDER_URL }}/ping")
           echo "Response status: $STATUS"
           if [ "$STATUS" != "200" ]; then
             echo "Warning: Server returned status $STATUS"

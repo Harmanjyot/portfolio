@@ -13,6 +13,7 @@ public class PingController {
 
     @GetMapping
     public ResponseEntity<String> ping() {
+        System.out.println("pong - pinged at " + java.time.LocalDateTime.now());
         return ResponseEntity.ok("pong");
     }
 }
